@@ -17,13 +17,10 @@ end
 
 system "clear"
 
-# def text_flasher(text)
-#     puts "\e[5m#{text}\e[0m"
-# end
 
-# Thread.start{ `play -q intro.mp3`}
+Thread.start{ `play -q intro.mp3`}
 
-# sleep 3
+sleep 3
 
 puts "Welcome to Twin Peaks-The Return.".center(130)
 Thread.start{ `play -q intro.mp3`}
@@ -46,7 +43,7 @@ Thread.start{ `play -q Giant1.mp3`}
 giant = File.read("twin1.txt")
 giant2 = File.read("twin2.txt")
 
-5.times do |i|
+11.times do |i|
 if i.odd?
     puts giant2
   else
@@ -56,7 +53,7 @@ if i.odd?
     sleep (0.7)
 end
 
-
+sleep 2
 Thread.start{ `play -q redroom.mp3`}
 sleep 3
 system "clear" 
@@ -107,7 +104,7 @@ Thread.start{ `play -q redroom.mp3`}
 system "clear"
  puts "Options:\n"
  puts " Look around the room (Look)."
- option = gets.chomp.downcase.strip
+ option = gets.chomp.downcase
 
  system "clear"
 
@@ -116,6 +113,10 @@ system "clear"
 	 puts "Options: Look around the room...	type: Look"
 	 option = gets.chomp.downcase.strip
  end
+
+ # until ["look"].include? option
+ # 	puts "Sorry, you need to enter: Look."
+ # end
 
  case option
  when "Look around the room" , "look"
@@ -263,10 +264,10 @@ anim("Does she look like Laura Palmer? (Yes)".center(20))
 		 sleep 4
 		 system "clear"
 		 puts"Options:\n"
-		 anim("Where am I? (type: Where)".center(20))
+		 anim("Where am I? type: Where)".center(20))
 		 where = gets.chomp.downcase.strip
 		 puts ""
-		 sleep 1
+		 sleep 4
 		 Thread.start{ `play -q whereami.mp3`}
 		 system "clear"
 		 sleep 3
@@ -275,52 +276,39 @@ anim("Does she look like Laura Palmer? (Yes)".center(20))
 		 sleep 4
 		 puts "Option:\n".center(20)
 		 anim("Is it future or is it past? (type: Future or Past)".center(20))
+		 where = gets.chomp.downcase.strip
 		 sleep 5
 		 system "clear"
 		 puts 7.chr
 		 sleep 1
-		 puts "...and you find yourself sitting in a red room. You are dead...".center(110)
-		 sleep 3
+		 anim("The dwarf is back and next to him is a girl. A blonde girl. Is it Laura??".center(140))
+		 puts""
+		 anim("The dwarf looks at you then at the girl and says...".center(140))
+		 Thread.start{ `play -q sheismy.mp3`}
+		 anim("She is my cousin but doesnt she look almost exactly like Laura Palmer?".center(130))
+		 sleep 4
 		 system "clear"
-		 " Should have talked to Lucy.".center(110)
-		 system "clear"
+		 anim("Does she look like Laura Palmer? (Yes)".center(20))
+	 	 she_look = gets.chomp.downcase.strip
+	 	 Thread.start{ `play -q shelookslike.mp3`}
+	 	 sleep 4
+	 	 puts""
+	 
+	 anim2("I feel like I know her.................................but sometimes..........................my arms bend back.".center(130))
+	 sleep 2
+	 puts""
+	 anim2("She's filled with secrets.....Where we are from...........the birds sing.........a pretty song.".center(130))
+	 sleep 4
+	 Thread.start{ `play -q finalsong.mp3`}
+	 system "clear"
+	 anim2("Thank you for playing Twin Peaks.".center(130))
+	 anim2("Twin Peaks was created by David Lynch and Mark Frost.".center(140))
+	 puts ""
+	 anim2("It has been a dream of mine since I was 20 years old to make a Twin Peaks Game.".center(130))
+	 puts ""
+	 anim2("I can't believe my dream finally came true. Dont ever stop dreaming.".center(130))
+	 puts ""
+	 anim2("And it's only the beginning. Thank you Wyncode!!!".center(130))
 		end
 	end
 end
-
-
-
-
-	
-
-
-
-
-#  when "Walk over to Lucy and respond", "yes"
-# 	 sleep 1
-# 	 system "clear"
-
-# 	 puts "You walk over to Lucy.".center (110)
-# 	 sleep 2
-# 	 puts "Lucy says to you...Sherrif Truman isnt' here but he wanted me to give you this message.".center(110)
-# 	 sleep 5
-# 	 puts "She reaches into an office drawer and hands you a piece of paper. You open the paper and read it".center(110)
-# 	 sleep 6
-# 	 system "clear"
-# 	 puts "\n"
-# 	 puts "\n"
-# 	 puts "The paper says...".center(110)
-# 	 puts "\n"
-# 	 puts "\n"
-# 	 puts "\n"
-# 	 puts "There is a strange man named Mike in the Lobby. Didnt you see him when you came in?".center(110)
-# 	 sleep 5
-# 	 puts "You need to talk to him!!".center(110)
-# 	 sleep 6
-# 	 puts 7.chr
-# 	 system "clear"
-# 	 puts "Agent Cooper you should know that a good detective always examines his surroundings.".center(110)
-# 	 sleep 5
-# 	 puts "Try again.".center(110)
-# 	 sleep 5
-# end
