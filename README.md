@@ -2,9 +2,6 @@
 
 This is my second attempt at a REPL game based on the TV Series by the same name Twin Peaks. 
 
-I have gaken certain liberties with the material but I have tried to remain faitrhful to the
-overall experience I had while watching the TV Show.
-
 It has been a dream of mine to create a game based on the Twin Peaks unvierse ever since I was
 20 years old. 
 
