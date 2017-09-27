@@ -21,7 +21,7 @@ def response_one(option)
 		anim("Immediately you notice that the dwarf is gone.")
 		sleep 2
 		puts "\n"
-		anim("As a matter of fact...everything is gone. You also notice that you are far away...")
+		anim("As a matter of fact...everything is gone. You also notice that you feel far away...")
 		sleep 1
 		Thread.start{ `play -q faraway.mp3`}
 		giant = File.read("giant1.txt")
@@ -42,15 +42,15 @@ def response_one(option)
 
 		sleep 5
 		system "clear"
-		puts "You start to hear a sound."
+		puts "You start to hear a sound and you remember what the giant said...Listen to the sounds."
 		Thread.start{ `play -q sound.mp3`}
 		sleep 4
 		puts "\n"
 		anim("Suddenly a large tree appears in the room. It begins to shake and starts talking to you.")
-		sleep 2
+		sleep 1
 		system "clear"
-		tree = File.read("tree.txt")
-		puts tree
+  		tree = File.read("tree.txt")
+  		puts tree
 		Thread.start{ `play -q thearm.mp3`}
 		anim2("............I am....................the...........arm.....................................and I....sound...........like this.........").center(130)
 		puts ""
@@ -75,7 +75,8 @@ def response_two(option)
 	sleep 4
 	system "clear"
 	sleep 4
-	anim2("The little girl. Laura!! You yell. Laura is the key but wait...who is she?....")
+	anim2("The little girl. Laura!!")
+	Thread.start{ `play -q laura.mp3`}
 	sleep 2
 	Thread.start{ `play -q ambient.mp3`}
 	anim2("Your vision fades to black....")
@@ -109,8 +110,12 @@ def response_two(option)
 	dwarf6 = File.read("dwarf6.txt")
 	dwarf7 = File.read("dwarf7.txt")
 	dwarf8 = File.read("dwarf8.txt")
+	dwarf9 = File.read("dwarf9.txt")
+	dwarf10 = File.read("dwarf10.txt")
+	dwarf11 = File.read("dwarf11.txt")
+	dwarf13 = File.read("dwarf13.txt")
 
-	dwarf_dance = [dwarf, dwarf2, dwarf3, dwarf4, dwarf5, dwarf6, dwarf7, dwarf8]
+	dwarf_dance = [dwarf, dwarf2, dwarf3, dwarf4, dwarf5, dwarf6, dwarf7, dwarf8, dwarf9, dwarf10, dwarf11, dwarf13]
 
 	# i = 1
 
@@ -135,7 +140,7 @@ def response_two(option)
 
 
 
-	puts dwarf8
+	puts dwarf13
 	puts""
 	anim("The dwarf is back and next to him is a girl. A blonde girl. Is it Laura??".center(140))
 	puts""
@@ -185,9 +190,10 @@ def response_three(option) #this one takes yes
 	Thread.start{ `play -q understand.mp3`}
 	sleep 2
 	Thread.start{ `play -q ambient.mp3`}
-	anim("The arm looks at you and a foreboding feeling overcomes you.".center(130))
+	anim("The arm looks at you and a foreboding feeling overcomes you.")
 	puts "\n"
-	anim("You suddenly feel dizzy and the room begins to spin out of control.".center(140))
+	anim("You suddenly feel dizzy and the room begins to spin out of control.")
+	sleep 3
 	system "clear"
 	 
 	wall1 = File.read("wall1.txt")
@@ -213,6 +219,7 @@ def response_three(option) #this one takes yes
   	sleep (0.1)
   	system "clear"
   end
+  
   puts tree
   Thread.start{ `play -q therealarm.mp3`}
   anim2("Do you know who I am?".center(140))
@@ -220,15 +227,21 @@ def response_three(option) #this one takes yes
 	anim("And I sound like this...".center(140))
 	sleep 4
 	system "clear"
+	
 	tree_flash.each do |x|
   	puts x
   	sleep (0.1)
   	system "clear"
   end
+  	
   	# insert loop here....
 	puts"Options:\n"
-	anim("Where am I? type: Where\n".center(20))
+	anim("You think to yourself...Where am I? type: Where\n".center(20))
 	where = gets.chomp.downcase.strip
+	while where != "where"
+		puts "Wrong answer try again. Type: Where"
+		where = gets.chomp.downcase.strip
+	end
 	puts ""
 	sleep 2
 	Thread.start{ `play -q whereami.mp3`}
@@ -240,7 +253,12 @@ def response_three(option) #this one takes yes
 	puts "\n"
 	puts "Option:\n"
 	anim("Is it future or is it past? type: Future or Past\n")
+	anim("Maybe the real question isnt where you are but rather when you are?\n")
 	future_past = gets.chomp.downcase.strip
+	while future_past != "past"
+		puts "Wrong answer try again. Type: Future or Past"
+		future_past = gets.chomp.downcase.strip
+	end
 	sleep 5
 	system "clear"
 	puts 7.chr
@@ -250,6 +268,7 @@ def response_three(option) #this one takes yes
 	anim2("The dwarf looks at you then at the girl and says...")
 	Thread.start{ `play -q sheismy.mp3`}
 	anim2("She is my cousin but doesnt she look almost exactly like Laura Palmer?")
+	laura = File.read("laura.txt")
 	sleep 5
 	system "clear"
 	she_look=""
@@ -271,7 +290,8 @@ def response_four(option)
 
 		anim2("I feel like I know her.................................but sometimes..........................my arms bend back.")
 		sleep 2
-		puts""
+		laura = File.read("laura.txt")
+		puts laura
 		anim2("She's filled with secrets.....Where we are from...........the birds sing.........a pretty song.")
 		sleep 4
 		Thread.start{ `play -q finalsong.mp3`}
@@ -313,7 +333,7 @@ system "clear"
 
 # banner = File.read("redroom.txt")
 # puts banner
-
+Thread.start{ `play -q ambient.mp3`}
 red = File.read("redroom.txt")
 red1 = File.read("redroom2.txt")
 red2 = File.read("redroom3.txt")
@@ -324,7 +344,7 @@ red_move = [red, red2, red3, red4, red, red2, red3, red4]
 
 red_move.each do |x|
 	puts x
-	sleep (0.4)
+	sleep (0.7)
 	system "clear"
 end		
 puts red4
@@ -354,7 +374,7 @@ giant2 = File.read("twin2.txt")
     sleep (0.7)
     system "clear"
 end
-
+Thread.start{ `play -q ambient.mp3`}
 	# --- Lines 66 - 133 Loads the Dancing Dwarf section. ----- #
 
 sleep 1
@@ -363,25 +383,31 @@ sleep 2
 system "clear" 
 anim("You think that maybe you might be Agent Cooper but you cant be certain.")
 sleep 2
-puts ""
+puts "\n"
+puts "\n"
 anim("You start to remember who you are. It feels like your not supposed to be here.")
 sleep 2
-puts ""
+puts "\n"
+puts "\n"
 anim("You close your eyes and you can see something in your mind. It's a dancing dwarf?")
 Thread.start{ `play -q dwarf.mp3`}
 sleep 2
 system "clear"
 
-		dwarf = File.read("dwarf.txt")
-		dwarf2 = File.read("dwarf2.txt")
-		dwarf3 = File.read("dwarf3.txt")
-		dwarf4 = File.read("dwarf4.txt")
-		dwarf5 = File.read("dwarf5.txt")
-		dwarf6 = File.read("dwarf6.txt")
-		dwarf7 = File.read("dwarf7.txt")
-		dwarf8 = File.read("dwarf8.txt")
+	dwarf = File.read("dwarf.txt")
+	dwarf2 = File.read("dwarf2.txt")
+	dwarf3 = File.read("dwarf3.txt")
+	dwarf4 = File.read("dwarf4.txt")
+	dwarf5 = File.read("dwarf5.txt")
+	dwarf6 = File.read("dwarf6.txt")
+	dwarf7 = File.read("dwarf7.txt")
+	dwarf8 = File.read("dwarf8.txt")
+	dwarf9 = File.read("dwarf9.txt")
+	dwarf10 = File.read("dwarf10.txt")
+	dwarf11 = File.read("dwarf11.txt")
+	dwarf13 = File.read("dwarf13.txt")
 
-		dwarf_dance = [dwarf, dwarf2, dwarf3, dwarf4, dwarf5, dwarf6, dwarf7, dwarf8]
+	dwarf_dance = [dwarf, dwarf2, dwarf3, dwarf4, dwarf5, dwarf6, dwarf7, dwarf8, dwarf9, dwarf10, dwarf11, dwarf13]
 
 dwarf_dance.each do |x|
 	puts x
@@ -403,7 +429,7 @@ end
 # end
 
 # puts banner
-puts dwarf8
+puts dwarf13
 puts"\n"
 anim("The dwarf looks at you and asks you a question.")
 
@@ -419,9 +445,10 @@ sleep 3
 # --- Lines 118 - 121 Prompts the user to make the (first choice). ----- #
 
 Thread.start{ `play -q redroom.mp3`}
-anim("Options.\n".center(18))
+system "clear"
+anim("Options.\n".center(15))
 puts "\n"
-anim("Look around the room...	type: Look")
+anim("It might be a good idea to look around..type: Look")
 puts "\n"
 option = gets.chomp.downcase.strip
 Thread.start{ `play -q redroom.mp3`}
